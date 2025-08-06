@@ -21,7 +21,6 @@ public class AddNotes extends HttpServlet {
             throws ServletException, IOException {
 
         response.setContentType("text/html");
-        PrintWriter out = response.getWriter();
 
         // Find the notes_title and notes_description using request
         String note_t = request.getParameter("notes_title").toUpperCase();

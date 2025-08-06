@@ -27,15 +27,18 @@
     String note_title = request.getParameter("search_val").trim().toUpperCase();
 
     // Hibernate Query
+
     Session session2 = FactoryProvider.getFactory().openSession();
-    String sql = "SELECT * FROM notes_taker WHERE title= :no_title";
-    NativeQuery<Note> query = session2.createNativeQuery(sql, Note.class);
+    // Note is Class Name
+
+    String sql = "FROM Note WHERE title= :no_title";
+    Query query= session2.createQuery(sql);
     query.setParameter("no_title", note_title);
 
     Note note = null;
 
     try {
-        note = query.getSingleResult();
+        note = (Note) query.getSingleResult();
     } catch (NoResultException e) {
     }
 
