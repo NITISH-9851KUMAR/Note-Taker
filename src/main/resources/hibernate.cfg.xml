@@ -4,21 +4,19 @@
 
 <hibernate-configuration>
     <session-factory>
-        <!-- Link to Database -->
         <property name="connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
         <property name="connection.url">jdbc:oracle:thin:@localhost:1521:XE</property>
         <property name="connection.username">system</property>
         <property name="connection.password">nitish</property>
 
-        <!-- Sql Dialect-->
-        <property name="hibernate.dialect">org.hibernate.dialect.Oracle12cDialect</property>
+        <property name="dialect">org.hibernate.dialect.Oracle12cDialect</property>
+        <property name="hbm2ddl.auto">update</property>
+        <property name="format_sql">true</property>
+        <property name="show_sql">true</property>
 
-        <!-- Other Setting -->
-        <property name="hibernate.hbm2ddl.auto">update</property>
-        <property name="hibernate_sql">true</property>
+        <!-- Mapping the Class -->
 
-        <!-- Map The Entity -->
-        <mapping class="entities.Note" />
+        <mapping class="org.Note"/>
 
     </session-factory>
 </hibernate-configuration>

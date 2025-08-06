@@ -7,7 +7,9 @@
   <version>1.0-SNAPSHOT</version>
   <name>NoteTaker Maven Webapp</name>
   <url>http://maven.apache.org</url>
+
   <dependencies>
+
     <!-- By Default Dependency -->
     <dependency>
       <groupId>junit</groupId>
@@ -25,14 +27,13 @@
       <scope>provided</scope>
     </dependency>
 
-    <!-- Use Hibernate 5.6 or later newer version -->
+    <!-- Hibernate 5.6 newer version -->
     <dependency>
       <groupId>org.hibernate</groupId>
       <artifactId>hibernate-core</artifactId>
       <version>5.6.15.Final</version> <!-- or newer -->
     </dependency>
-
-
+    
     <!-- Dependency for oracle 11g database -->
     <dependency>
       <groupId>com.oracle.database.jdbc</groupId>
@@ -45,4 +46,5 @@
   <build>
     <finalName>NoteTaker</finalName>
   </build>
+
 </project>
