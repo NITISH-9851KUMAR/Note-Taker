@@ -11,7 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 
 @WebServlet("/update-notes")
@@ -28,15 +29,15 @@ public class UpdateNotes extends HttpServlet {
         String note_title = request.getParameter("notes_title");
         String note_description = request.getParameter("notes_description");
 
-        LocalDateTime now = LocalDateTime.now();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy  HH-mm");
-        String date = formatter.format(now);
+        ZonedDateTime istTime = ZonedDateTime.now(ZoneId.of("Asia/Kolkata"));
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+        String date_time = istTime.format(formatter);
 
         Session session = FactoryProvider.getFactory().openSession();
         Transaction tx = session.beginTransaction();
         Note note = session.get(Note.class, note_id);
 
-        note.setAddDate(date);
+        note.setAddDate(date_time);
         note.setTitle(note_title);
         note.setDescription(note_description);
 

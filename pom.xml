@@ -41,6 +41,14 @@
       <version>11.2.0.4</version>
       <scope>provided</scope>
     </dependency>
+
+    <!-- Dependency for MySql Database -->
+    <dependency>
+      <groupId>com.mysql</groupId>
+      <artifactId>mysql-connector-j</artifactId>
+      <version>8.4.0</version>
+    </dependency>
+
   </dependencies>
 
   <build>

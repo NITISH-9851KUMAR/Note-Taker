@@ -11,7 +11,7 @@ public class FactoryProvider {
 
         if(factory==null){
             Configuration cfg= new Configuration();
-            cfg.configure("hibernate.cfg.xml");
+            cfg.configure("hibernate_m.cfg.xml");
             factory= cfg.buildSessionFactory();
         }
 

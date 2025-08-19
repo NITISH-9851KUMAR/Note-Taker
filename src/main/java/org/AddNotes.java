@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 
 @WebServlet("/add-notes")
@@ -27,10 +27,9 @@ public class AddNotes extends HttpServlet {
         String note_title = note_t.toUpperCase();
         String note_description = request.getParameter("notes_description");
 
-        // Calculate the Current Date and Time
-        LocalDateTime now = LocalDateTime.now();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH-mm");
-        String date_time = now.format(formatter);
+        ZonedDateTime istTime = ZonedDateTime.now(ZoneId.of("Asia/Kolkata"));
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+        String date_time = istTime.format(formatter);
 
         // Hibernate Code
         Session session = FactoryProvider.getFactory().openSession();
